@@ -22,16 +22,26 @@ else
 tempfile=`mktemp 2>/dev/null` || tempfile=/tmp/test$$
 trap "rm -f $tempfile" 0 1 2 5 15
 
-$DIALOG --clear --title "Установка, обновление и удаление игр" \
-        --menu "Список игр:" 100 100 100 \
-                "jazzjackrabbit"  "Jazz Jack Rabbit" \
-                "raptor" "Raptor Call of the Shadows" \
-                "redneckrampage" "Redneck Rampage" \
-                "redneckrampagera" "Redneck Rampage Rides Again" 2> $tempfile
+$DIALOG --clear --title "Игры" \
+        --menu "Список жанров:" 100 100 100 \
+                "arcade"  "Аркады" \
+                "fps" "Шутеры" 2> $tempfile
         retval=$?
 
         choice=`cat $tempfile`
 
+
+############################ arcade
+
+if [ "$choice" = "arcade" ]; then
+
+$DIALOG --clear --title "Аркады" \
+        --menu "Список игр:" 100 100 100 \
+                "jazzjackrabbit"  "Jazz Jack Rabbit" \
+                "raptor" "Raptor Call of the Shadows" 2> $tempfile
+        retval=$?
+
+        choice=`cat $tempfile`
 
 
 if [ "$choice" = "jazzjackrabbit" ]; then
@@ -62,8 +72,8 @@ $DIALOG --title "$choice" \
     $DIALOG $OPTS --yesno "$text" 10 80
      if [ $? = "0" ];
         then
-        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
         sudo emerge games-arcade/jazz-jack-rabbit
+        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
         xdg-open http://narod.ru/disk/39770887001/JazzJackRabbit.tar.gz.html
         $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
         fi
@@ -126,8 +136,8 @@ $DIALOG --title "$choice" \
     $DIALOG $OPTS --yesno "$text" 10 80
      if [ $? = "0" ];
         then
-        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
         sudo emerge games-arcade/raptor-call-shadows
+        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
         xdg-open http://narod.ru/disk/39771959001/RaptorCalloftheShadows.tar.gz.html
         $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
         fi
@@ -164,6 +174,22 @@ $DIALOG --title "$choice" \
 
 fi
 
+######### end arcade
+
+fi
+
+#################################################### fps
+
+if [ "$choice" = "fps" ]; then
+
+$DIALOG --clear --title "Шутеры" \
+        --menu "Список игр:" 100 100 100 \
+                "redneckrampage" "Redneck Rampage" \
+                "redneckrampagera" "Redneck Rampage Rides Again" 2> $tempfile
+        retval=$?
+
+        choice=`cat $tempfile`
+
 if [ "$choice" = "redneckrampage" ]; then
 
 textfile="$pathtextfile/RedneckRampage.txt"
@@ -190,8 +216,8 @@ $DIALOG --title "$choice" \
     $DIALOG $OPTS --yesno "$text" 10 80
      if [ $? = "0" ];
         then
-        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
         sudo emerge games-fps/redneck-rampage
+        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
         xdg-open http://narod.ru/disk/39772940001/RedneckRampage.tar.gz.html
         $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
         fi
@@ -254,8 +280,8 @@ $DIALOG --title "$choice" \
     $DIALOG $OPTS --yesno "$text" 10 80
      if [ $? = "0" ];
         then
-        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
         sudo emerge games-fps/redneck-rampage-rides-again
+        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
         xdg-open http://narod.ru/disk/39836804001/RedneckRampageRidesAgain.tar.gz.html
         $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
         fi
@@ -290,5 +316,10 @@ $DIALOG --title "$choice" \
     $DIALOG $OPTS --msgbox "Удалили Redneck Rampage Rides Again :(" 10 60
   fi
 
+########## end fps
+
+fi
+
+################## end all
 
 fi
