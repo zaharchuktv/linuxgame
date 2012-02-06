@@ -22,14 +22,11 @@ else
 tempfile=`mktemp 2>/dev/null` || tempfile=/tmp/test$$
 trap "rm -f $tempfile" 0 1 2 5 15
 
-$DIALOG --clear --title "Установка игр" \
+$DIALOG --clear --title "Установка, обновление и удаление игр" \
         --menu "Список игр:" 50 50 60 \
                 "jazzjackrabbit"  "Jazz Jack Rabbit" \
                 "raptor" "Raptor Call of the Shadows" \
-                "redneckrampage" "Redneck Rampage" \
-                "Saigal" "K L Saigal" \
-                "Lata"  "Lata Mangeshkar" \
-                "Yesudas"  "K J Yesudas" 2> $tempfile
+                "redneckrampage" "Redneck Rampage" 2> $tempfile
         retval=$?
 
         choice=`cat $tempfile`
@@ -42,6 +39,19 @@ textfile="$pathtextfile/JazzJackRabbit.txt"
 source $textfile
 
 
+$DIALOG --title "$choice" \
+        --menu "Что делаем:" 50 50 60 \
+                "install"  "Устанавливаем" \
+                "wgetarh"  "Скачиваем архив" \
+                "unarh"  "Распаковываем архив" \
+                "update" "Обновляем" \
+                "delete" "Удаляем" 2> $tempfile
+        retval=$?
+
+        choice=`cat $tempfile`
+
+  if [ "$choice" = "install" ]; then
+
    $DIALOG $OPTS --msgbox "$msgbox" 40 100
     $DIALOG $OPTS --yesno "$text" 10 80
      if [ $? = "0" ];
@@ -51,6 +61,36 @@ source $textfile
         xdg-open http://narod.ru/disk/39770887001/JazzJackRabbit.tar.gz.html
         $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
         fi
+  fi
+
+
+  if [ "$choice" = "wgetarh" ]; then
+    $DIALOG $OPTS --msgbox "$msgbox2" 10 60
+    xdg-open http://narod.ru/disk/39770887001/JazzJackRabbit.tar.gz.html
+  fi
+
+
+  if [ "$choice" = "unarh" ]; then
+    $DIALOG $OPTS --msgbox "Распаковываем архив Jazz Jack Rabbit" 10 60
+    jazz-jack-rabbit-unarh
+    $DIALOG $OPTS --msgbox "Распаковали архив Jazz Jack Rabbit" 10 60
+  fi
+
+
+  if [ "$choice" = "update" ]; then
+    $DIALOG $OPTS --msgbox "Обновляем Jazz Jack Rabbit" 10 60
+    sudo layman -s ztime
+    sudo eix-update
+    sudo emerge games-arcade/jazz-jack-rabbit
+    $DIALOG $OPTS --msgbox "Обновили Jazz Jack Rabbit" 10 60
+  fi
+
+  if [ "$choice" = "delete" ]; then
+    $DIALOG $OPTS --msgbox "Удаляем Jazz Jack Rabbit" 10 60
+    sudo emerge -C games-arcade/jazz-jack-rabbit
+    rm -rf ~/Games/JazzJackRabbit
+    $DIALOG $OPTS --msgbox "Удалили Jazz Jack Rabbit :(" 10 60
+  fi
 fi
 
 if [ "$choice" = "raptor" ]; then
@@ -58,6 +98,18 @@ if [ "$choice" = "raptor" ]; then
 textfile="$pathtextfile/RaptorCalloftheShadows.txt"
 source $textfile
 
+$DIALOG --title "$choice" \
+        --menu "Что делаем:" 50 50 60 \
+                "install"  "Устанавливаем" \
+                "wgetarh"  "Скачиваем архив" \
+                "unarh"  "Распаковываем архив" \
+                "update" "Обновляем" \
+                "delete" "Удаляем" 2> $tempfile
+        retval=$?
+
+        choice=`cat $tempfile`
+
+  if [ "$choice" = "install" ]; then
 
    $DIALOG $OPTS --msgbox "$msgbox" 40 100
     $DIALOG $OPTS --yesno "$text" 10 80
@@ -68,6 +120,36 @@ source $textfile
         xdg-open http://narod.ru/disk/39771959001/RaptorCalloftheShadows.tar.gz.html
         $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
         fi
+  fi
+
+  if [ "$choice" = "wgetarh" ]; then
+    $DIALOG $OPTS --msgbox "$msgbox2" 10 60
+    xdg-open http://narod.ru/disk/39771959001/RaptorCalloftheShadows.tar.gz.html
+  fi
+
+
+  if [ "$choice" = "unarh" ]; then
+    $DIALOG $OPTS --msgbox "Распаковываем архив Raptor Call of the Shadows" 10 60
+    raptor-call-shadows-unarh
+    $DIALOG $OPTS --msgbox "Распаковали архив Raptor Call of the Shadows" 10 60
+  fi
+
+
+  if [ "$choice" = "update" ]; then
+    $DIALOG $OPTS --msgbox "Обновляем Raptor Call of the Shadows" 10 60
+    sudo layman -s ztime
+    sudo eix-update
+    sudo emerge games-arcade/raptor-call-shadows
+    $DIALOG $OPTS --msgbox "Обновили Raptor Call of the Shadows" 10 60
+  fi
+
+  if [ "$choice" = "delete" ]; then
+    $DIALOG $OPTS --msgbox "Удаляем Raptor Call of the Shadows" 10 60
+    sudo emerge -C games-arcade/raptor-call-shadows
+    rm -rf ~/Games/RaptorCalloftheShadows
+    $DIALOG $OPTS --msgbox "Удалили Raptor Call of the Shadows :(" 10 60
+  fi
+
 fi
 
 if [ "$choice" = "redneckrampage" ]; then
@@ -75,6 +157,18 @@ if [ "$choice" = "redneckrampage" ]; then
 textfile="$pathtextfile/RedneckRampage.txt"
 source $textfile
 
+$DIALOG --title "$choice" \
+        --menu "Что делаем:" 50 50 60 \
+                "install"  "Устанавливаем" \
+                "wgetarh"  "Скачиваем архив" \
+                "unarh"  "Распаковываем архив" \
+                "update" "Обновляем" \
+                "delete" "Удаляем" 2> $tempfile
+        retval=$?
+
+        choice=`cat $tempfile`
+
+  if [ "$choice" = "install" ]; then
 
    $DIALOG $OPTS --msgbox "$msgbox" 40 100
     $DIALOG $OPTS --yesno "$text" 10 80
@@ -85,4 +179,35 @@ source $textfile
         xdg-open http://narod.ru/disk/39772940001/RedneckRampage.tar.gz.html
         $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
         fi
+  fi
+
+  if [ "$choice" = "wgetarh" ]; then
+    $DIALOG $OPTS --msgbox "$msgbox2" 10 60
+    xdg-open http://narod.ru/disk/39772940001/RedneckRampage.tar.gz.html
+  fi
+
+
+  if [ "$choice" = "unarh" ]; then
+    $DIALOG $OPTS --msgbox "Распаковвываем архив Redneck Rampage" 10 60
+    redneck-rampage-unarh
+    $DIALOG $OPTS --msgbox "Распаковали архив Redneck Rampage" 10 60
+  fi
+
+
+  if [ "$choice" = "update" ]; then
+    $DIALOG $OPTS --msgbox "Обновляем Redneck Rampage" 10 60
+    sudo layman -s ztime
+    sudo eix-update
+    sudo emerge games-fps/redneck-rampage
+    $DIALOG $OPTS --msgbox "Обновили Redneck Rampage" 10 60
+  fi
+
+  if [ "$choice" = "delete" ]; then
+    $DIALOG $OPTS --msgbox "Удаляем Redneck Rampage" 10 60
+    sudo emerge -C games-fps/redneck-rampage
+    rm -rf ~/Games/RedneckRampage
+    $DIALOG $OPTS --msgbox "Удалили Redneck Rampage :(" 10 60
+  fi
+
+
 fi
