@@ -67,6 +67,7 @@ $DIALOG --title "$choice" \
   if [ "$choice" = "wgetarh" ]; then
     $DIALOG $OPTS --msgbox "$msgbox2" 10 60
     xdg-open http://narod.ru/disk/39770887001/JazzJackRabbit.tar.gz.html
+    $DIALOG $OPTS --msgbox "Скачали архив Jazz Jack Rabbit" 10 60
   fi
 
 
@@ -125,6 +126,7 @@ $DIALOG --title "$choice" \
   if [ "$choice" = "wgetarh" ]; then
     $DIALOG $OPTS --msgbox "$msgbox2" 10 60
     xdg-open http://narod.ru/disk/39771959001/RaptorCalloftheShadows.tar.gz.html
+    $DIALOG $OPTS --msgbox "Скачали архив Raptor Call of the Shadows" 10 60
   fi
 
 
@@ -184,6 +186,7 @@ $DIALOG --title "$choice" \
   if [ "$choice" = "wgetarh" ]; then
     $DIALOG $OPTS --msgbox "$msgbox2" 10 60
     xdg-open http://narod.ru/disk/39772940001/RedneckRampage.tar.gz.html
+    $DIALOG $OPTS --msgbox "Скачали архив Redneck Rampage" 10 60
   fi
 
 
