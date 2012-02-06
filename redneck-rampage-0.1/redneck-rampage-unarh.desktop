@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Распаковать Redneck Rampage
+Comment=Распаковать Redneck Rampage
+Exec=xterm -maximized redneck-rampage-unarh
+Icon=RedneckRampage.png
+Type=Application
+Categories=Game;
+#Categories=RemoteAccess;
+

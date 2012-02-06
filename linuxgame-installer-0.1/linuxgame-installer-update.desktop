@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Обновить LinuxGame Installer
+Comment=Обновить LinuxGame Installer
+Exec=xterm -maximized linuxgame-installer-update
+Icon=linuxgame-installer.png
+Type=Application
+Categories=Game;
+#Categories=RemoteAccess;
+

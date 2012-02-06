@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Распаковать Raptor Call of the Shadows
+Comment=Распаковать Raptor Call of the Shadows
+Exec=xterm -maximized raptor-call-shadows-unarh
+Icon=RaptorCalloftheShadows.png
+Type=Application
+Categories=Game;
+#Categories=RemoteAccess;
+

@@ -1,0 +1,88 @@
+#!/bin/sh
+
+dirgames="ls ~ | grep Games"
+
+if [ dirgames = $dirgames ]; then
+    echo "Папка Games есть в каталоге"
+    else
+    mkdir ~/Games
+    fi
+
+#путь путь до текстовых файлов
+pathtextfile=/usr/share/linuxgame-installer/txt
+
+    if [ "$DISPLAY" != "" ];
+    then
+        DIALOG="dialog"
+else
+        DIALOG="xdialog"
+    fi
+
+
+tempfile=`mktemp 2>/dev/null` || tempfile=/tmp/test$$
+trap "rm -f $tempfile" 0 1 2 5 15
+
+$DIALOG --clear --title "Установка игр" \
+        --menu "Список игр:" 50 50 60 \
+                "jazzjackrabbit"  "Jazz Jack Rabbit" \
+                "raptor" "Raptor Call of the Shadows" \
+                "redneckrampage" "Redneck Rampage" \
+                "Saigal" "K L Saigal" \
+                "Lata"  "Lata Mangeshkar" \
+                "Yesudas"  "K J Yesudas" 2> $tempfile
+        retval=$?
+
+        choice=`cat $tempfile`
+
+
+
+if [ "$choice" = "jazzjackrabbit" ]; then
+
+textfile="$pathtextfile/JazzJackRabbit.txt"
+source $textfile
+
+
+   $DIALOG $OPTS --msgbox "$msgbox" 40 100
+    $DIALOG $OPTS --yesno "$text" 10 80
+     if [ $? = "0" ];
+        then
+        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
+        sudo emerge games-arcade/jazz-jack-rabbit
+        xdg-open http://narod.ru/disk/39770887001/JazzJackRabbit.tar.gz.html
+        $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
+        fi
+fi
+
+if [ "$choice" = "raptor" ]; then
+
+textfile="$pathtextfile/RaptorCalloftheShadows.txt"
+source $textfile
+
+
+   $DIALOG $OPTS --msgbox "$msgbox" 40 100
+    $DIALOG $OPTS --yesno "$text" 10 80
+     if [ $? = "0" ];
+        then
+        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
+        sudo emerge games-arcade/raptor-call-shadows
+        xdg-open http://narod.ru/disk/39771959001/RaptorCalloftheShadows.tar.gz.html
+        $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
+        fi
+fi
+
+if [ "$choice" = "redneckrampage" ]; then
+
+textfile="$pathtextfile/RedneckRampage.txt"
+source $textfile
+
+
+   $DIALOG $OPTS --msgbox "$msgbox" 40 100
+    $DIALOG $OPTS --yesno "$text" 10 80
+     if [ $? = "0" ];
+        then
+        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
+        sudo emerge games-fps/redneck-rampage
+        xdg-open http://narod.ru/disk/39772940001/RedneckRampage.tar.gz.html
+        $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
+        fi
+fi

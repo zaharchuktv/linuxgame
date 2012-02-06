@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=LinuxGame Installer
+Comment=LinuxGame Installer
+Exec=xterm -maximized linuxgame-installer
+Icon=linuxgame-installer.png
+Type=Application
+#Categories=Network;
+Categories=Game;
+

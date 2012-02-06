@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Запустить Raptor Call of the Shadows
+Comment=Запустить Raptor Call of the Shadows
+Exec=raptor-call-shadows
+Icon=RaptorCalloftheShadows.png
+Type=Application
+#Categories=Network;
+Categories=Game;
+

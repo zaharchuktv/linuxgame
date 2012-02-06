@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Запустить Redneck Rampage
+Comment=Запустить Redneck Rampage
+Exec=redneck-rampage
+Icon=RedneckRampage.png
+Type=Application
+#Categories=Network;
+Categories=Game;
+
