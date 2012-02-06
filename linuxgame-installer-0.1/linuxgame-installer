@@ -23,11 +23,11 @@ tempfile=`mktemp 2>/dev/null` || tempfile=/tmp/test$$
 trap "rm -f $tempfile" 0 1 2 5 15
 
 $DIALOG --clear --title "Установка, обновление и удаление игр" \
-        --menu "Список игр:" 50 50 100 \
+        --menu "Список игр:" 100 100 100 \
                 "jazzjackrabbit"  "Jazz Jack Rabbit" \
                 "raptor" "Raptor Call of the Shadows" \
                 "redneckrampage" "Redneck Rampage" \
-                "redneckrampageraidesagain" "Redneck Rampage Rides Again" 2> $tempfile
+                "redneckrampagera" "Redneck Rampage Rides Again" 2> $tempfile
         retval=$?
 
         choice=`cat $tempfile`
@@ -42,6 +42,7 @@ source $textfile
 
 $DIALOG --title "$choice" \
         --menu "Что делаем:" 50 50 60 \
+                "msg"  "Описание игры" \
                 "install"  "Устанавливаем" \
                 "wgetarh"  "Скачиваем архив" \
                 "unarh"  "Распаковываем архив" \
@@ -51,9 +52,13 @@ $DIALOG --title "$choice" \
 
         choice=`cat $tempfile`
 
+
+  if [ "$choice" = "msg" ]; then
+   $DIALOG $OPTS --msgbox "$msgbox" 60 100
+  fi
+
   if [ "$choice" = "install" ]; then
 
-   $DIALOG $OPTS --msgbox "$msgbox" 40 100
     $DIALOG $OPTS --yesno "$text" 10 80
      if [ $? = "0" ];
         then
@@ -102,6 +107,7 @@ source $textfile
 
 $DIALOG --title "$choice" \
         --menu "Что делаем:" 50 50 60 \
+                "msg"  "Описание игры" \
                 "install"  "Устанавливаем" \
                 "wgetarh"  "Скачиваем архив" \
                 "unarh"  "Распаковываем архив" \
@@ -111,9 +117,12 @@ $DIALOG --title "$choice" \
 
         choice=`cat $tempfile`
 
+  if [ "$choice" = "msg" ]; then
+   $DIALOG $OPTS --msgbox "$msgbox" 60 100
+  fi
+
   if [ "$choice" = "install" ]; then
 
-   $DIALOG $OPTS --msgbox "$msgbox" 40 100
     $DIALOG $OPTS --yesno "$text" 10 80
      if [ $? = "0" ];
         then
@@ -162,6 +171,7 @@ source $textfile
 
 $DIALOG --title "$choice" \
         --menu "Что делаем:" 50 50 60 \
+                "msg"  "Описание игры" \
                 "install"  "Устанавливаем" \
                 "wgetarh"  "Скачиваем архив" \
                 "unarh"  "Распаковываем архив" \
@@ -171,9 +181,12 @@ $DIALOG --title "$choice" \
 
         choice=`cat $tempfile`
 
+  if [ "$choice" = "msg" ]; then
+   $DIALOG $OPTS --msgbox "$msgbox" 60 100
+  fi
+
   if [ "$choice" = "install" ]; then
 
-   $DIALOG $OPTS --msgbox "$msgbox" 40 100
     $DIALOG $OPTS --yesno "$text" 10 80
      if [ $? = "0" ];
         then
@@ -216,13 +229,14 @@ $DIALOG --title "$choice" \
 
 fi
 
-if [ "$choice" = "redneckrampageridesagain" ]; then
+if [ "$choice" = "redneckrampagera" ]; then
 
 textfile="$pathtextfile/RedneckRampageRidesAgain.txt"
 source $textfile
 
 $DIALOG --title "$choice" \
         --menu "Что делаем:" 50 50 60 \
+                "msg"  "Описание игры" \
                 "install"  "Устанавливаем" \
                 "wgetarh"  "Скачиваем архив" \
                 "unarh"  "Распаковываем архив" \
@@ -232,9 +246,11 @@ $DIALOG --title "$choice" \
 
         choice=`cat $tempfile`
 
+  if [ "$choice" = "msg" ]; then
+   $DIALOG $OPTS --msgbox "$msgbox" 60 100
+  fi
+    
   if [ "$choice" = "install" ]; then
-
-   $DIALOG $OPTS --msgbox "$msgbox" 40 100
     $DIALOG $OPTS --yesno "$text" 10 80
      if [ $? = "0" ];
         then
