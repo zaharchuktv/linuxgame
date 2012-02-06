@@ -1,0 +1,9 @@
+#!/bin/sh
+
+mkdir -p ~/Games
+mv ~/Загрузки/RedneckRampageRidesAgain.tar.gz ~/Games
+cd ~/Games
+tar xvfz RedneckRampageRidesAgain.tar.gz
+rm RedneckRampageRidesAgain.tar.gz
+sudo rm /usr/share/applications/redneck-rampage-rides-again-unarh.desktop
+sudo mv /usr/share/redneck-rampage-rides-again/redneck-rampage-rides-again.desktop /usr/share/applications

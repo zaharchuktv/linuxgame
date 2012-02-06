@@ -23,10 +23,11 @@ tempfile=`mktemp 2>/dev/null` || tempfile=/tmp/test$$
 trap "rm -f $tempfile" 0 1 2 5 15
 
 $DIALOG --clear --title "Установка, обновление и удаление игр" \
-        --menu "Список игр:" 50 50 60 \
+        --menu "Список игр:" 50 50 100 \
                 "jazzjackrabbit"  "Jazz Jack Rabbit" \
                 "raptor" "Raptor Call of the Shadows" \
-                "redneckrampage" "Redneck Rampage" 2> $tempfile
+                "redneckrampage" "Redneck Rampage" \
+                "redneckrampageraidesagain" "Redneck Rampage Rides Again" 2> $tempfile
         retval=$?
 
         choice=`cat $tempfile`
@@ -210,6 +211,67 @@ $DIALOG --title "$choice" \
     sudo emerge -C games-fps/redneck-rampage
     rm -rf ~/Games/RedneckRampage
     $DIALOG $OPTS --msgbox "Удалили Redneck Rampage :(" 10 60
+  fi
+
+
+fi
+
+if [ "$choice" = "redneckrampageridesagain" ]; then
+
+textfile="$pathtextfile/RedneckRampageRidesAgain.txt"
+source $textfile
+
+$DIALOG --title "$choice" \
+        --menu "Что делаем:" 50 50 60 \
+                "install"  "Устанавливаем" \
+                "wgetarh"  "Скачиваем архив" \
+                "unarh"  "Распаковываем архив" \
+                "update" "Обновляем" \
+                "delete" "Удаляем" 2> $tempfile
+        retval=$?
+
+        choice=`cat $tempfile`
+
+  if [ "$choice" = "install" ]; then
+
+   $DIALOG $OPTS --msgbox "$msgbox" 40 100
+    $DIALOG $OPTS --yesno "$text" 10 80
+     if [ $? = "0" ];
+        then
+        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
+        sudo emerge games-fps/redneck-rampage-rides-again
+        xdg-open http://narod.ru/disk/39836804001/RedneckRampageRidesAgain.tar.gz.html
+        $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
+        fi
+  fi
+
+  if [ "$choice" = "wgetarh" ]; then
+    $DIALOG $OPTS --msgbox "$msgbox2" 10 60
+    xdg-open http://narod.ru/disk/39836804001/RedneckRampageRidesAgain.tar.gz.html
+    $DIALOG $OPTS --msgbox "Скачали архив Redneck Rampage Rides Again" 10 60
+  fi
+
+
+  if [ "$choice" = "unarh" ]; then
+    $DIALOG $OPTS --msgbox "Распаковвываем архив Redneck Rampage Rides Again" 10 60
+    redneck-rampage-rides-againunarh
+    $DIALOG $OPTS --msgbox "Распаковали архив Redneck Rampage Rides Again" 10 60
+  fi
+
+
+  if [ "$choice" = "update" ]; then
+    $DIALOG $OPTS --msgbox "Обновляем Redneck Rampage Rides Again" 10 60
+    sudo layman -s ztime
+    sudo eix-update
+    sudo emerge games-fps/redneck-rampage-rides-again
+    $DIALOG $OPTS --msgbox "Обновили Redneck Rampage Rides Again" 10 60
+  fi
+
+  if [ "$choice" = "delete" ]; then
+    $DIALOG $OPTS --msgbox "Удаляем Redneck Rampage Rides Again" 10 60
+    sudo emerge -C games-fps/redneck-rampage-rides-again
+    rm -rf ~/Games/RedneckRampageRidesAgain
+    $DIALOG $OPTS --msgbox "Удалили Redneck Rampage Rides Again :(" 10 60
   fi
 
 

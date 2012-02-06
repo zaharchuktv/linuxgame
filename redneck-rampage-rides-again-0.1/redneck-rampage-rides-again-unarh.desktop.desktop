@@ -1,0 +1,12 @@
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Распаковать Redneck Rampage Rides Again
+Comment=Распаковать Redneck Rampage Rides Again
+Exec=xterm -maximized redneck-rampage-rides-again-unarh
+Icon=RedneckRampageRidesAgain.png
+Type=Application
+Categories=Game;
+#Categories=RemoteAccess;
+

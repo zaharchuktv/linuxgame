@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Запустить Redneck Rampage Rides Again
+Comment=Запустить Redneck Rampage Rides Again
+Exec=redneck-rampage-rides-again
+Icon=RedneckRampageRidesAgain.png
+Type=Application
+#Categories=Network;
+Categories=Game;
