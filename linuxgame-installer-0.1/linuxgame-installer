@@ -218,14 +218,14 @@ $DIALOG --title "$choice" \
         then
         sudo emerge games-fps/redneck-rampage
         $DIALOG $OPTS --msgbox "$msgbox1" 40 80
-        xdg-open http://narod.ru/disk/39772940001/RedneckRampage.tar.gz.html
+        xdg-open http://narod.ru/disk/39900119001/RedneckRampage.tar.gz.html
         $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
         fi
   fi
 
   if [ "$choice" = "wgetarh" ]; then
     $DIALOG $OPTS --msgbox "$msgbox2" 10 60
-    xdg-open http://narod.ru/disk/39772940001/RedneckRampage.tar.gz.html
+    xdg-open http://narod.ru/disk/39900119001/RedneckRampage.tar.gz.html
     $DIALOG $OPTS --msgbox "Скачали архив Redneck Rampage" 10 60
   fi
 
@@ -282,14 +282,14 @@ $DIALOG --title "$choice" \
         then
         sudo emerge games-fps/redneck-rampage-rides-again
         $DIALOG $OPTS --msgbox "$msgbox1" 40 80
-        xdg-open http://narod.ru/disk/39836804001/RedneckRampageRidesAgain.tar.gz.html
+        xdg-open http://narod.ru/disk/39900236001/RedneckRampageRidesAgain.tar.gz.html
         $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
         fi
   fi
 
   if [ "$choice" = "wgetarh" ]; then
     $DIALOG $OPTS --msgbox "$msgbox2" 10 60
-    xdg-open http://narod.ru/disk/39836804001/RedneckRampageRidesAgain.tar.gz.html
+    xdg-open http://narod.ru/disk/39900236001/RedneckRampageRidesAgain.tar.gz.html
     $DIALOG $OPTS --msgbox "Скачали архив Redneck Rampage Rides Again" 10 60
   fi
 
