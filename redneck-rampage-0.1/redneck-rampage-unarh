@@ -7,3 +7,4 @@ tar xvfz RedneckRampage.tar.gz
 rm RedneckRampage.tar.gz
 sudo rm /usr/share/applications/redneck-rampage-unarh.desktop
 sudo mv /usr/share/redneck-rampage/redneck-rampage.desktop /usr/share/applications
+sudo mv /usr/share/redneck-rampage/redneck-rampage-cusspack.desktop /usr/share/applications

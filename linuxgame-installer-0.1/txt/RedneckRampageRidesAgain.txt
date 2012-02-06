@@ -25,6 +25,7 @@ Redneck Rampage Rides Again собран на движке erampage и так ж
 мелкие улучшения и мелкие доработки.\n\n
 Что бы избежать путаницы с настройками и конфигами, для тех кто запускает Redneck Rampage и Redneck Rampage Rides Again под одним пользователем, каталог сохранён для Redneck Rampage как ~/.erampage, а для Redneck Rampage Rides Again как ~/.erampage/rrra.\n\n
 Changelog\n\n
+- Аддон "Cuss Pack" к серии игр Redneck Rampage добавляет крепкие выражения и языковые обороты деревенщины в озвучку игр\n
 - поддерживаются аддоны и модификации,\n
 - добавлено воспроизведение оригинальных аудиотреков,\n
 - добавлен скрипт rampage (запускать игру только через него!),\n

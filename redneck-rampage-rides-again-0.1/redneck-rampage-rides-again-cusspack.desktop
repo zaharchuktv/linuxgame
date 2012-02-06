@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Запустить Redneck Rampage Rides Again с нецензурной озвучкой
+Comment=Запустить Redneck Rampage Rides Again с нецензурной озвучкой
+Exec=redneck-rampage-rides-again-cusspack
+Icon=RedneckRampageRidesAgain.png
+Type=Application
+#Categories=Network;
+Categories=Game;
