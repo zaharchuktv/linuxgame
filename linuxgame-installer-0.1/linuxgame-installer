@@ -392,7 +392,8 @@ $DIALOG --title "$choice" \
     fi
     $DIALOG $OPTS --msgbox "Удалили Redneck Rampage Suckin Grits on Route 66 addon :(" 10 60
   fi
-
+ fi
+ 
 ########## end fps
 
 fi
