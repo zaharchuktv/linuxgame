@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Запустить Redneck Rampage Route66
+Comment=Запустить Redneck Rampage Route66
+Exec=redneck-rampage-route66
+Icon=RedneckRampageRoute66.png
+Type=Application
+#Categories=Network;
+Categories=Game;

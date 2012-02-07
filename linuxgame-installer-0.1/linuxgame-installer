@@ -103,9 +103,12 @@ $DIALOG --title "$choice" \
   fi
 
   if [ "$choice" = "delete" ]; then
-    $DIALOG $OPTS --msgbox "Удаляем Jazz Jack Rabbit" 10 60
+    $DIALOG $OPTS --yesno "Удаляем Jazz Jack Rabbit" 10 80
+     if [ $? = "0" ];
+        then
     sudo emerge -C games-arcade/jazz-jack-rabbit
     rm -rf ~/Games/JazzJackRabbit
+    fi
     $DIALOG $OPTS --msgbox "Удалили Jazz Jack Rabbit :(" 10 60
   fi
 fi
@@ -166,9 +169,12 @@ $DIALOG --title "$choice" \
   fi
 
   if [ "$choice" = "delete" ]; then
-    $DIALOG $OPTS --msgbox "Удаляем Raptor Call of the Shadows" 10 60
+    $DIALOG $OPTS --yesno "Удаляем Raptor Call of the Shadows" 10 80
+     if [ $? = "0" ];
+        then
     sudo emerge -C games-arcade/raptor-call-shadows
     rm -rf ~/Games/RaptorCalloftheShadows
+    fi
     $DIALOG $OPTS --msgbox "Удалили Raptor Call of the Shadows :(" 10 60
   fi
 
@@ -185,7 +191,8 @@ if [ "$choice" = "fps" ]; then
 $DIALOG --clear --title "Шутеры" \
         --menu "Список игр:" 100 100 100 \
                 "redneckrampage" "Redneck Rampage" \
-                "redneckrampagera" "Redneck Rampage Rides Again" 2> $tempfile
+                "redneckrampagera" "Redneck Rampage Rides Again" \
+                "redneckrampage66" "Redneck Rampage Suckin Grits on Route 66 addon" 2> $tempfile
         retval=$?
 
         choice=`cat $tempfile`
@@ -246,9 +253,12 @@ $DIALOG --title "$choice" \
   fi
 
   if [ "$choice" = "delete" ]; then
-    $DIALOG $OPTS --msgbox "Удаляем Redneck Rampage" 10 60
+    $DIALOG $OPTS --yesno "Удаляем Redneck Rampage" 10 80
+     if [ $? = "0" ];
+        then
     sudo emerge -C games-fps/redneck-rampage
     rm -rf ~/Games/RedneckRampage
+    fi
     $DIALOG $OPTS --msgbox "Удалили Redneck Rampage :(" 10 60
   fi
 
@@ -296,7 +306,7 @@ $DIALOG --title "$choice" \
 
   if [ "$choice" = "unarh" ]; then
     $DIALOG $OPTS --msgbox "Распаковвываем архив Redneck Rampage Rides Again" 10 60
-    redneck-rampage-rides-againunarh
+    redneck-rampage-rides-again-unarh
     $DIALOG $OPTS --msgbox "Распаковали архив Redneck Rampage Rides Again" 10 60
   fi
 
@@ -310,10 +320,77 @@ $DIALOG --title "$choice" \
   fi
 
   if [ "$choice" = "delete" ]; then
-    $DIALOG $OPTS --msgbox "Удаляем Redneck Rampage Rides Again" 10 60
+    $DIALOG $OPTS --yesno "Удаляем Redneck Rampage Rides Again" 10 80
+     if [ $? = "0" ];
+        then
     sudo emerge -C games-fps/redneck-rampage-rides-again
     rm -rf ~/Games/RedneckRampageRidesAgain
+    fi
     $DIALOG $OPTS --msgbox "Удалили Redneck Rampage Rides Again :(" 10 60
+  fi
+
+if [ "$choice" = "redneckrampage66" ]; then
+
+textfile="$pathtextfile/RedneckRampageRoute66.txt"
+source $textfile
+
+$DIALOG --title "$choice" \
+        --menu "Что делаем:" 50 50 60 \
+                "msg"  "Описание игры" \
+                "install"  "Устанавливаем" \
+                "wgetarh"  "Скачиваем архив" \
+                "unarh"  "Распаковываем архив" \
+                "update" "Обновляем" \
+                "delete" "Удаляем" 2> $tempfile
+        retval=$?
+
+        choice=`cat $tempfile`
+
+  if [ "$choice" = "msg" ]; then
+   $DIALOG $OPTS --msgbox "$msgbox" 60 100
+  fi
+    
+  if [ "$choice" = "install" ]; then
+    $DIALOG $OPTS --yesno "$text" 10 80
+     if [ $? = "0" ];
+        then
+        sudo emerge games-fps/redneck-rampage-route66
+        $DIALOG $OPTS --msgbox "$msgbox1" 40 80
+        xdg-open http://narod.ru/disk/39900784001/RedneckRampageRoute66.tar.gz.html
+        $DIALOG $OPTS --msgbox "Приятной и веселой Вам игры" 10 40
+        fi
+  fi
+
+  if [ "$choice" = "wgetarh" ]; then
+    $DIALOG $OPTS --msgbox "$msgbox2" 10 60
+    xdg-open http://narod.ru/disk/39900784001/RedneckRampageRoute66.tar.gz.html
+    $DIALOG $OPTS --msgbox "Скачали архив Redneck Rampage Suckin Grits on Route 66 addon" 10 60
+  fi
+
+
+  if [ "$choice" = "unarh" ]; then
+    $DIALOG $OPTS --msgbox "Распаковвываем архив Redneck Rampage Suckin Grits on Route 66 addon" 10 60
+    redneck-rampage-route66-unarh
+    $DIALOG $OPTS --msgbox "Распаковали архив Redneck Rampage Suckin Grits on Route 66 addon" 10 60
+  fi
+
+
+  if [ "$choice" = "update" ]; then
+    $DIALOG $OPTS --msgbox "Обновляем Redneck Rampage Suckin Grits on Route 66 addon" 10 60
+    sudo layman -s ztime
+    sudo eix-update
+    sudo emerge games-fps/redneck-rampage-route66
+    $DIALOG $OPTS --msgbox "Обновили Redneck Rampage Suckin Grits on Route 66 addon" 10 60
+  fi
+
+  if [ "$choice" = "delete" ]; then
+    $DIALOG $OPTS --yesno "Удаляем Redneck Rampage Suckin Grits on Route 66 addon" 10 80
+     if [ $? = "0" ];
+        then
+    sudo emerge -C games-fps/redneck-rampage-route66
+    rm -rf ~/Games/RedneckRampageRidesAgainRoute66
+    fi
+    $DIALOG $OPTS --msgbox "Удалили Redneck Rampage Suckin Grits on Route 66 addon :(" 10 60
   fi
 
 ########## end fps

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Распаковать Redneck Rampage Route66
+Comment=Распаковать Redneck Rampage Route66
+Exec=xterm -maximized redneck-rampage-route66-unarh
+Icon=RedneckRampageRoute66.png
+Type=Application
+Categories=Game;
+#Categories=RemoteAccess;
