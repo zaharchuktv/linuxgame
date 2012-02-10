@@ -1,0 +1,5 @@
+#!/bin/bash
+ 
+ outfile=$(wget -O - --user-agent="User-Agent Firefox/3.5.1 YB/4.2.0" $1 | grep start | sed 's/.*href="\(.*\)">.*/\1/')
+  
+  wget --progress=bar -nc -c -P ~/Games "narod.ru$outfile"
