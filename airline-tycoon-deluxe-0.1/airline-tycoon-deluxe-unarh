@@ -1,0 +1,9 @@
+#!/bin/sh
+
+mkdir -p ~/Games
+mv ~/Загрузки/AirlineTycoonDeluxe.tar.gz ~/Games
+cd ~/Games
+tar xvfz AirlineTycoonDeluxe.tar.gz
+rm AirlineTycoonDeluxe.tar.gz
+sudo rm /usr/share/applications/airline-tycoon-deluxe-unarh.desktop
+sudo mv /usr/share/airline-tycoon-deluxe/airline-tycoon-deluxe.desktop /usr/share/applications

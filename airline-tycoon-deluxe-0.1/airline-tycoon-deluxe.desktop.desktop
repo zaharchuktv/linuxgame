@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Запустить Airline Tycoon Deluxe
+Comment=Запустить Airline Tycoon Deluxe
+Exec=airline-tycoon-deluxe
+Icon=AirlineTycoonDeluxe.png
+Type=Application
+#Categories=Network;
+Categories=Game;

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Распаковать Airline Tycoon Deluxe
+Comment=Распаковать Airline Tycoon Deluxe
+Exec=xterm -maximized airline-tycoon-deluxe-unarh
+Icon=AirlineTycoonDeluxe.png
+Type=Application
+Categories=Game;
+#Categories=RemoteAccess;
