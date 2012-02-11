@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Распаковать Americas Army Special Forces
+Comment=Распаковать Americas Army Special Forces
+Exec=xterm -maximized americas-army-special-forces-unarh
+Icon=AmericasArmySpecialForces.png
+Type=Application
+Categories=Game;
+#Categories=RemoteAccess;

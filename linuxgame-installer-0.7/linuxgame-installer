@@ -277,6 +277,7 @@ if [ "$choice" = "fps" ]; then
 $DIALOG --clear --title "Шутеры" \
         --menu "Список игр:" 100 100 100 \
                 "apredatorg" "Aliens Versus Predator Gold" \
+                "americasasf" "Americas Army Special Forces" \
                 "rrampage" "Redneck Rampage" \
                 "rrampagera" "Redneck Rampage Rides Again" \
                 "rrampage66" "Redneck Rampage Suckin Grits on Route 66 addon" 2> $tempfile
@@ -338,6 +339,59 @@ $DIALOG --title "$namegame" \
 fi
 
 ################ end Aliens Versus Predator Gold
+
+if [ "$choice" = "americasasf" ]; then
+
+textfile="$pathtextfile/AmericasArmySpecialForces.txt"
+namegame="Americas Army Special Forces"
+
+$DIALOG --title "$namegame" \
+        --menu "Что делаем:" 80 80 80 \
+                "msg"  "Описание игры" \
+                "install"  "Устанавливаем" \
+                "update" "Обновляем" \
+                "delete" "Удаляем" 2> $tempfile
+        retval=$?
+
+        choice=`cat $tempfile`
+
+  if [ "$choice" = "msg" ]; then
+   $DIALOG $OPTS --textbox "$textfile" 0 0
+  fi
+
+  if [ "$choice" = "install" ]; then
+
+    $DIALOG $OPTS --yesno "$text\n Размер архива с игрой 872 МБ" 10 80
+     if [ $? = "0" ];
+        then
+        sudo emerge games-fps/americas-army-special-forces
+        wgetnarodru http://narod.ru/disk/40348925001/AmericasArmySpecialForces.tar.gz.html
+	americas-army-special-forces-unarh
+        $DIALOG $OPTS --msgbox "$text1" 10 80
+        fi
+  fi
+
+  if [ "$choice" = "update" ]; then
+    $DIALOG $OPTS --msgbox "Обновляем $namegame" 10 80
+    sudo layman -s ztime
+    sudo eix-update
+    sudo emerge games-fps/americas-army-special-forces
+    $DIALOG $OPTS --msgbox "Обновили $namegame" 10 80
+  fi
+
+  if [ "$choice" = "delete" ]; then
+    $DIALOG $OPTS --yesno "Удаляем $namegame" 10 80
+     if [ $? = "0" ];
+        then
+    sudo emerge -C games-fps/americas-army-special-forces
+    rm -rf ~/Games/AmericasArmySpecialForces
+    fi
+    $DIALOG $OPTS --msgbox "Удалили $namegame :(" 10 80
+  fi
+
+fi
+
+################ end Americas Army Special Forces
 
 if [ "$choice" = "rrampage" ]; then
 

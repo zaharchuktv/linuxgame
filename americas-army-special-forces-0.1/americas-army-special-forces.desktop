@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Запустить Americas Army Special Forces
+Comment=Запустить Americas Army Special Forces
+Exec=americas-army-special-forces
+Icon=AmericasArmySpecialForces.png
+Type=Application
+#Categories=Network;
+Categories=Game;
