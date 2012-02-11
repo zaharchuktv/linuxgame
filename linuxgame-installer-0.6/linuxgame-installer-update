@@ -1,0 +1,6 @@
+#!/bin/sh
+
+
+sudo layman -s ztime && sudo eix-update && sudo emerge linuxgame-installer && sudo dispatch-conf && sudo emerge linuxgame-installer
+
+sleep 30
