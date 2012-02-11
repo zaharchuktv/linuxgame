@@ -2,3 +2,5 @@
 
 
 sudo layman -s ztime && sudo eix-update && sudo emerge linuxgame-installer
+
+sleep 20
