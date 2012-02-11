@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Запустить Aliens Versus Predator Gold
+Comment=Запустить Aliens Versus Predator Gold
+Exec=aliens-versus-predator-gold
+Icon=AliensVersusPredatorGold.png
+Type=Application
+#Categories=Network;
+Categories=Game;

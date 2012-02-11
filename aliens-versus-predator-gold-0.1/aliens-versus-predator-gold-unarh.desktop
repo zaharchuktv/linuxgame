@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Распаковать Aliens Versus Predator Gold
+Comment=Распаковать Aliens Versus Predator Gold
+Exec=xterm -maximized aliens-versus-predator-gold-unarh
+Icon=AliensVersusPredatorGold.png
+Type=Application
+Categories=Game;
+#Categories=RemoteAccess;

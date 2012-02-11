@@ -276,6 +276,7 @@ if [ "$choice" = "fps" ]; then
 
 $DIALOG --clear --title "Шутеры" \
         --menu "Список игр:" 100 100 100 \
+                "apredatorg" "Aliens Versus Predator Gold" \
                 "rrampage" "Redneck Rampage" \
                 "rrampagera" "Redneck Rampage Rides Again" \
                 "rrampage66" "Redneck Rampage Suckin Grits on Route 66 addon" 2> $tempfile
@@ -284,6 +285,59 @@ $DIALOG --clear --title "Шутеры" \
         choice=`cat $tempfile`
 
 ############ end menu fps
+
+if [ "$choice" = "apredatorg" ]; then
+
+textfile="$pathtextfile/AliensVersusPredatorGold.txt"
+namegame="Aliens Versus Predator Gold"
+
+$DIALOG --title "$namegame" \
+        --menu "Что делаем:" 80 80 80 \
+                "msg"  "Описание игры" \
+                "install"  "Устанавливаем" \
+                "update" "Обновляем" \
+                "delete" "Удаляем" 2> $tempfile
+        retval=$?
+
+        choice=`cat $tempfile`
+
+  if [ "$choice" = "msg" ]; then
+   $DIALOG $OPTS --textbox "$textfile" 0 0
+  fi
+
+  if [ "$choice" = "install" ]; then
+
+    $DIALOG $OPTS --yesno "$text\n Размер архива с игрой 96.1 МБ" 10 80
+     if [ $? = "0" ];
+        then
+        sudo emerge games-fps/aliens-versus-predator-gold
+        wgetnarodru http://narod.ru/disk/40345576001/AliensVersusPredatorGold.tar.gz.html
+	aliens-versus-predator-gold-unarh
+        $DIALOG $OPTS --msgbox "$text1" 10 80
+        fi
+  fi
+
+  if [ "$choice" = "update" ]; then
+    $DIALOG $OPTS --msgbox "Обновляем $namegame" 10 80
+    sudo layman -s ztime
+    sudo eix-update
+    sudo emerge games-fps/aliens-versus-predator-gold
+    $DIALOG $OPTS --msgbox "Обновили $namegame" 10 80
+  fi
+
+  if [ "$choice" = "delete" ]; then
+    $DIALOG $OPTS --yesno "Удаляем $namegame" 10 80
+     if [ $? = "0" ];
+        then
+    sudo emerge -C games-fps/aliens-versus-predator-gold
+    rm -rf ~/Games/AliensVersusPredatorGold
+    fi
+    $DIALOG $OPTS --msgbox "Удалили $namegame :(" 10 80
+  fi
+
+fi
+
+################ end Aliens Versus Predator Gold
 
 if [ "$choice" = "rrampage" ]; then
 
